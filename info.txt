@@ -1,0 +1,92 @@
+test scenario --->  describe
+testcase ------> it block
+
+
+
+
+
+
+
+Manual testing definition :-
+test scenario - what to test 
+test case -  How to test ?
+test case will have each step mentioned
+
+ <p class = "newOne newThree newFour" id = "newTwo" name = "newFive" >ParaOne</p>
+ // html element --- object 
+ // object - property and method
+
+  <h1>Hello</h1>
+    <ul>
+        <li>Mango
+            <button>Addme</button>
+            <button>Addme2</button>
+            <button>Addme3</button>
+        </li>
+        <li>Chiku</li>
+        <li>Banana</li>
+        <li>Grapes</li>
+        <li>Apple</li>
+        <p class = "newOne newThree newFour" id = "newTwo" name = "newFive" >ParaOne</p>
+    </ul>
+
+// Selecting the element using javascript 
+
+//  id  ---> #idName
+//  class ---> .value
+//  attribute ----> tagName[attribute=value]
+//  tagName
+
+// document.querySelector('p')
+// document.querySelector('#newTwo')
+// document.querySelector('p[id="newTwo"]')
+// document.querySelector('.newFour')
+// document.querySelector('p[name='newFive']')
+
+// document.querySelector('') // --- > single element
+// document.querySelectorAll('li') ----> // let a = [<li>Chiku</li>,<li>Banana</li>,<li>Grapes</li>,<li>Apple</li>] nodeList
+// Array.from(a)
+
+// cypress:---->
+
+// single element
+// multiple elements ---- nodeList   
+// cy.get('cssSelector')
+// cy.contains('string/regularExpression')
+
+
+    <ul>
+        <li>Mango
+            <button>Addme</button>
+            <button>Addme2</button>
+            <button>Addme3</button>
+        </li>
+        <li>Chiku</li>
+        <li>Banana</li>
+        <li>Grapes</li>
+        <li>Apple</li>
+        <p class = "newOne newThree newFour" id = "newTwo" name = "newFive" >ParaOne</p>
+    </ul>
+
+// css ---> tagName[attribute='value']
+cy.get('li') // [li,li,li,li]
+cy.get('#newTwo')//
+cy.get('.newThree')
+cy.get('p[class ="newOne newThree newFour"]')
+cy.contains('Chiku')
+
+// xpath ---- element --- plugin
+
+css --->  tagName[attribute='value']
+xpath -->  //tagName[@attribute='value']
+
+// xpath -- relative, absolute path
+
+
+
+
+
+
+
+
+
