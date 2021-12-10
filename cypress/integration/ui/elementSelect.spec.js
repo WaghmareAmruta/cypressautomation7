@@ -5,11 +5,9 @@ describe('ways to select element in cypress',function(){
         cy.visit('https://www.google.com/')
         cy.get('input[name="q"]').type('python')
 
-
-
     })
     
-    it('selecting the element using  xpath',()=>{
+    it.only('selecting the element using  xpath',()=>{
 
         // cy.get('cssSelector')
         // cy.xpath('xpath')
@@ -19,7 +17,7 @@ describe('ways to select element in cypress',function(){
 
         
     })
-    it.only('selecting the element using text of html element',()=>{
+    it('selecting the element using text of html element',()=>{
         
         cy.visit('https://www.google.com/')
         cy.get('input[name="q"]').type('python')

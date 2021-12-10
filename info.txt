@@ -88,5 +88,71 @@ xpath -->  //tagName[@attribute='value']
 
 
 
+// npx cypress run -- running the cypress testcases via command line 
+
+
+// npx cypress run
+
+// npx cypress run --headed --browser chrome
+
+// ./node_modules/.bin/cypress run
+
+// ./node_modules/.bin/cypress open 
+
+// -------- when you install the npx plugin 
+
+npx cypress run 
+
+npx cypress open
+
+xpath 
+
+// <h1 id = "hello" class = "red yellow green orange  blue" name ="new">Hello</h1>
+
+// <ul>
+    <li>Apple</li>
+    <li>Mango</li>
+    <li>Banan</li>
+    <li>Grapes</li>
+</ul>
+
+
+// javscript --
+// css selector   - tagName[attribute = 'value']
+document.querySelector('#hello') // returns me single element
+document.querySelector('.red') // return me single element
+document.querySelector('h1')
+document.querySelector('h1[name="new"]')
+document.querySelectorAll('li')// nodeList
+
+
+// cypress 
+// <h1 id = "hello" class = "red yellow green orange  blue" name ="new">Hello</h1>
+cy.get(cssSelector)
+cy.get('#hello')
+cy.get('.red')
+cy.get('h1')
+cy.get('h1[name="new"]')
+cy.get('li')
+cy.contains('regularExpresson')
+cy.contains('Hello')
+
+// Selenium --- > xpath , cssSelector , name , id , class , linkText , partialLink text ,tagName
+
+// cypress - cssSelector , xpath
+// css selector --- tagName[attribute= "value"]
+// xpath ----   //tagName[@attribute = "value"]
+// cy.xpath('//tagName[@attribute = "value"]')
+
+
+
+
+
+
+
+
+
+
+
 
 
