@@ -84,7 +84,7 @@ describe('Validate various cypress tranveral methods',()=>{
           
     })
 
-    it.only('To get descendant DOM elements of the selector, use the .find() command.',()=>{
+    it('To get descendant DOM elements of the selector, use the .find() command.',()=>{
         // tranverse from a location 
         cy.visit('http://automationpractice.com/index.php')
         cy.get('#homefeatured')
@@ -92,19 +92,89 @@ describe('Validate various cypress tranveral methods',()=>{
         .find('li').should('have.length',7)
     })
 
-    it.only('To get the next sibling DOM element within elements, use the .next() command.',()=>{
+    it('To get the next sibling DOM element within elements, use the .next() command.',()=>{
         // tranverse from a location 
         cy.visit('http://automationpractice.com/index.php')
         // cy.get('.toggle-footer').eq(1)
         // .children('li').first().next().should('contain','New products')
-
         cy.get('.toggle-footer').eq(1)
         .children('li').first().next().find('a').should('contain','New products')
 
         
     })
 
+    it('To get the next sibling DOM element within elements, use the .next() command.',()=>{
+        // tranverse from a location 
+        cy.visit('http://automationpractice.com/index.php')
+        // cy.get('.toggle-footer').eq(1)
+        // .children('li').first().next().should('contain','New products')
+        cy.get('.toggle-footer').eq(1)
+        .children('li').first().next().find('a').should('contain','New products')
+
+        
+    })
+
+    it('To get all of the next sibling DOM elements within elements, use the .nextAll() command.',()=>{
+        // tranverse from a location 
+        cy.visit('http://automationpractice.com/index.php')
+        cy.get('.toggle-footer').eq(1).children().first().nextAll()
+        .should('have.length','7')        
+
+    })
+
+    // sibling .. next nextAll , nextUntil, prev prevAll , prevUntil
+
+    it('To get all of the next sibling DOM elements within elements until another element, use the .nextUntil() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('#cb-main-menu').children().first()
+        .nextUntil('a[title="Cricket Scorecard Archives"]')
+        .should('have.length','2')
+           
+    })
+
+    it.only('To get the previous sibling DOM element within elements, use the .prev() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('a[title="Cricket Scorecard Archives"]').prev().should('have.text','Schedule')
+        
+           
+    })
+
+    it.only('To get all previous sibling DOM elements within elements, use the .prevAll() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('a[title="Cricket Scorecard Archives"]').prevAll().should('have.length',3)
+        
+           
+    })
+
+
+    it.only('To get all previous sibling DOM elements within elements, use the .prevAll() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('a[title="Cricket Scorecard Archives"]').prevAll().should('have.length',3)
+        
+           
+    })
   
+    it('To get all previous sibling DOM elements within elements until other element, use the .prevUntil() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('a[title="Cricket Scorecard Archives"]')
+        .prevUntil('a[title="Live Cricket Score"]').should('have.length',1)
+        
+           
+    })
+
+    it.only('To get all sibling DOM elements of elements, use the .siblings() command.',()=>{
+        // tranverse from a location 
+        cy.visit('https://www.cricbuzz.com/')
+        cy.get('a[title="Cricket Scorecard Archives"]')
+        .siblings().should('have.length',12)
+        
+           
+    })
 
 
 
