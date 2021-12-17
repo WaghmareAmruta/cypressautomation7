@@ -1,6 +1,5 @@
 /// <reference types = "Cypress"/>
 describe('verify the different type of API', function () {
-
     // test michel page 2 
     it('verify the GET Api request', function () {
         cy.request({
