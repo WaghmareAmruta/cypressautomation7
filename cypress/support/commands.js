@@ -28,3 +28,19 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
 })
+
+// secret ID , clientID ------> token -----> authorization
+
+Cypress.Commands.add('getAPIData', (method, url) => {
+    cy.request({
+        method: method,
+        url: url,
+        headers: {
+            Authorization: 'Bearer X'
+        }
+
+
+    })
+
+
+})

@@ -4,7 +4,6 @@
 // ----> response 
 
 describe('verify the GET api', () => {
-
     let payload = {
         "name": "morpheus",
         "job": "leader"
@@ -38,3 +37,6 @@ describe('verify the GET api', () => {
 })
 
 // 6pm ist
+// expect(1).to.eqls(1)
+// expect(true).to.eqls(true)
+// expect({age:12}).to.have.property('age',12)
