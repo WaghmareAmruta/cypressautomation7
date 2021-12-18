@@ -31,16 +31,27 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 // secret ID , clientID ------> token -----> authorization
 
-Cypress.Commands.add('getAPIData', (method, url) => {
-    cy.request({
-        method: method,
-        url: url,
-        headers: {
-            Authorization: 'Bearer X'
-        }
+Cypress.Commands.add('getAPIData', (method, url, body) => {
+    cy.log(body)
+    if (!body) {
+        cy.request({
+            method: method,
+            url: url,
+            headers: {
+                Authorization: 'Bearer 4682c7888368922069a06b7001ebf5a7e7d3c8ab7269669606c6491b6c0e87d9'
+            }
+        })
+    }
+    else {
+        cy.request({
+            method: method,
+            url: url,
+            headers: {
+                Authorization: 'Bearer 4682c7888368922069a06b7001ebf5a7e7d3c8ab7269669606c6491b6c0e87d9'
+            },
+            body:body
+        })
 
-
-    })
-
+    }
 
 })
