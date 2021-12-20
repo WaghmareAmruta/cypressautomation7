@@ -31,27 +31,59 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 // secret ID , clientID ------> token -----> authorization
 
-Cypress.Commands.add('getAPIData', (method, url, body) => {
-    cy.log(body)
+Cypress.Commands.add('getAPIData', (method,token,url, body) => {
+    // get and delete
     if (!body) {
         cy.request({
             method: method,
             url: url,
             headers: {
-                Authorization: 'Bearer 4682c7888368922069a06b7001ebf5a7e7d3c8ab7269669606c6491b6c0e87d9'
+                Authorization: `Bearer ${token}`
             }
         })
     }
-    else {
+    else if(body){
+
+        // post and put
         cy.request({
             method: method,
             url: url,
             headers: {
-                Authorization: 'Bearer 4682c7888368922069a06b7001ebf5a7e7d3c8ab7269669606c6491b6c0e87d9'
+                Authorization: `Bearer ${token}`
             },
             body:body
         })
 
     }
 
+
 })
+
+
+
+//  Once  the build is ready to test 
+// we will execute testcases , if there is 
+// difference between  what is expected , i will report the 
+//bug and  simultaneously confirm it with developer ..
+
+
+// The bug in assigned state is assign back for validation to qa
+// once the bug is fixed i will mark it as close , 
+// if re-open i will provide more deatails reassign to developer
+
+
+// Developer ----->
+
+// user story ------>
+
+
+// requirement --- cope ----15 - 2
+// datatest --
+// testcase ---
+// utitlity 
+// stub mocking 
+// regression
+// more feature
+
+
+//
