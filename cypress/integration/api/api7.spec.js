@@ -24,9 +24,7 @@ describe('verify the POST url', () => {
     })
 
     it.only('verify for correct response for get', () => {
-
         cy.fixture('example').then(function (payload) {
-
             payload.email = generateEmail()
             cy.getAPIData('POST', 'https://gorest.co.in/public/v1/users', payload).then(function (response) {
                 expect(response.status).to.eq(201)
