@@ -30,34 +30,94 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // secret ID , clientID ------> token -----> authorization
+// Cypress.Commands.add('getAPIData', (method,token,url, body) => {
+//     // get and delete
+//     if (!body) {
+//         cy.request({
+//             method: method,
+//             url: url,
+//             headers: {
+//                 Authorization: `Bearer ${token}`
+//             }
+//         })
+//     }
+//     else if(body){
 
-Cypress.Commands.add('getAPIData', (method,token,url, body) => {
-    // get and delete
-    if (!body) {
+//         // post and put
+//         cy.request({
+//             method: method,
+//             url: url,
+//             headers: {
+//                 Authorization: `Bearer ${token}`
+//             },
+//             body:body
+//         })
+
+//     }
+
+
+// })
+
+
+Cypress.Commands.add('ApiCall',(accessToken,method,url,payload,param)=>{
+
+    if(!payload){
         cy.request({
             method: method,
-            url: url,
+            url:url,
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: accessToken
             }
         })
-    }
-    else if(body){
 
-        // post and put
+        // either the get or delete request
+    }
+    else if(payload && !param){
+        //post
+        cy.request({
+            method:method,
+            url:url,
+            headers: {
+                Authorization: accessToken
+            },
+            body: payload
+        })
+
+
+    }
+    else if(param){
+        // GET and DELETE for UI id 
         cy.request({
             method: method,
-            url: url,
+            url:url+`/${param}`,
             headers: {
-                Authorization: `Bearer ${token}`
-            },
-            body:body
+                Authorization: accessToken
+            }
         })
 
     }
 
+    else if(param && payload){
+        cy.request({
+            method:method,
+            url:url+`/${param}`,
+            headers: {
+                Authorization: accessToken
+            },
+            body: payload
+        })
+    }
 
 })
+
+
+
+
+
+
+
+
+
 
 
 
