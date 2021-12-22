@@ -43,6 +43,7 @@ describe('verify the POST url', () => {
 
 
 
+
     })
 
 
@@ -51,3 +52,6 @@ describe('verify the POST url', () => {
 
 
 })
+
+// Auth 2.0
+// client secret --- token -- access api

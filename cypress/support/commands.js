@@ -30,33 +30,33 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 // secret ID , clientID ------> token -----> authorization
-// Cypress.Commands.add('getAPIData', (method,token,url, body) => {
-//     // get and delete
-//     if (!body) {
-//         cy.request({
-//             method: method,
-//             url: url,
-//             headers: {
-//                 Authorization: `Bearer ${token}`
-//             }
-//         })
-//     }
-//     else if(body){
+Cypress.Commands.add('getAPIData', (method,token,url, body) => {
+    // get and delete
+    if (!body) {
+        cy.request({
+            method: method,
+            url: url,
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+    }
+    else if(body){
 
-//         // post and put
-//         cy.request({
-//             method: method,
-//             url: url,
-//             headers: {
-//                 Authorization: `Bearer ${token}`
-//             },
-//             body:body
-//         })
+        // post and put
+        cy.request({
+            method: method,
+            url: url,
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            body:body
+        })
 
-//     }
+    }
 
 
-// })
+})
 
 
 Cypress.Commands.add('ApiCall',(accessToken,method,url,payload,param)=>{
