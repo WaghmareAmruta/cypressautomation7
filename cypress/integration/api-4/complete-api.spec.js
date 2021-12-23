@@ -54,7 +54,8 @@ describe('validate get api', () => {
                     expect(response.status).to.eq(200)
                     return usersId
                 }).then((usersId) => {
-                    cy.ApiCall(accessToken,"DELETE",url,usersId).then((response) => {
+                    cy.log(usersId)
+                    cy.ApiCall(accessToken,"DELETE",url,payload,usersId).then((response) => {
                         // cy.log(response)
                         expect(response.status).to.eq(204)
                     })
